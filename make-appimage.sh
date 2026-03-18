@@ -3,16 +3,17 @@
 set -eu
 
 ARCH=$(uname -m)
-VERSION=$(pacman -Q PACKAGENAME | awk '{print $2; exit}') # example command to get version of application here
+VERSION=$(pacman -Q daggerfall-unity-bin | awk '{print $2; exit}') # example command to get version of application here
 export ARCH VERSION
 export OUTPATH=./dist
 export ADD_HOOKS="self-updater.bg.hook"
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
-export ICON=PATH_OR_URL_TO_ICON
-export DESKTOP=PATH_OR_URL_TO_DESKTOP_ENTRY
+export ICON=https://raw.githubusercontent.com/Interkarma/daggerfall-unity/refs/heads/master/Assets/Resources/DFUIcon.png
+export DESKTOP=/usr/share/applications/daggerfall.desktop
+export DEPLOY_OPENGL=1
 
 # Deploy dependencies
-quick-sharun /PATH/TO/BINARY_AND_LIBRARIES_HERE
+quick-sharun /usr/bin/daggerfall-unity /opt/daggerfall-unity/engine/DaggerfallUnity.x86_64
 
 # Additional changes can be done in between here
 
