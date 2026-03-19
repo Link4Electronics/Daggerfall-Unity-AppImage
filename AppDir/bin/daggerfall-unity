@@ -1,9 +1,9 @@
 #!/bin/sh
-DATA_DIR="/opt/daggerfall-unity/data"
+DATA_DIR="$APPDIR/bin/data"
 CONFIG_DIR="$HOME/.config/unity3d/Daggerfall Workshop/Daggerfall Unity"
 SAVE_DIR="$HOME/.local/share/daggerfall-unity/save"
 CONFIG_FILE="settings.ini"
-CONFIG_TEMPLATE="/usr/share/daggerfall-unity/settings-template.ini"
+CONFIG_TEMPLATE="$APPDIR/bin/settings-template.ini"
 
 if [[ ! -f $CONFIG_DIR/$CONFIG_FILE  ]]; then
 	echo "No existing config file found. Creating default"
@@ -20,4 +20,4 @@ if [[ ! -f $CONFIG_DIR/$CONFIG_FILE  ]]; then
 	sed -i "s:MyDaggerfallUnitySavePath = :MyDaggerfallUnitySavePath = $SAVE_DIR:g" "$CONFIG_DIR/$CONFIG_FILE"
 fi
 
-/opt/daggerfall-unity/engine/DaggerfallUnity.x86_64
+$APPDIR/bin/engine/DaggerfallUnity.x86_64
