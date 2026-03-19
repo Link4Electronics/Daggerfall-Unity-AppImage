@@ -9,6 +9,7 @@ echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
     libdecor \
     ncurses  \
+    readline \
     sdl2
 
 echo "Installing debloated packages..."
