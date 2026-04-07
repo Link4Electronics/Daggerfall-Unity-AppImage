@@ -6,9 +6,7 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-pacman -Syu --noconfirm \
-    ncurses  \
-    readline
+# pacman -Syu --noconfirm
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
